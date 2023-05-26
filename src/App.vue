@@ -1,8 +1,14 @@
 <script setup>
+//user ROUTE Para caracteristas de las rutas (params, nome)
+//userRouter para las funciones
+import { useRoute , useRouter} from 'vue-router';
 /*var map = L.map('map', {
     center: [51.505, -0.09],
     zoom: 13
+
 });*/
+const {push} = useRouter()
+
 </script>
 
 
@@ -11,12 +17,13 @@
   .topBar
     h2 Mapa
   .cuerpo
+    RouterView
     span Aqui va el mapa
   .nav
     ul
-      li home
-      li users 
-      li logout
+      li(@click='push({name: "home"})') home
+      li(@click='push({name: "card", params: {idHotel: "asdasd"}})') users 
+      li(@click='push({name: "perfil", params: {idHotel: "dx"}})') logout
 </template>
 
 <style lang="sass" scoped>
